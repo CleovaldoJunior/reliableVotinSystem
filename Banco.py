@@ -9,7 +9,3 @@ def inserir_eleitor_banco(eleitor):
     cursor.execute("INSERT INTO eleitor(nome, idade, cpf, sexo, titulo) VALUES (%s, %s, %s, %s, %s)", args)
     cone.commit()
 
-cursor.execute("SELECT * FROM `eleitor`")
-for i in cursor:
-    print(i)
-
