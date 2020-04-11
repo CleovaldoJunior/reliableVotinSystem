@@ -1,5 +1,5 @@
-from Models.Pessoa import Pessoa
-from Models.Voto import Voto
+from reliableVotinSystem.Models.Pessoa import Pessoa
+from reliableVotinSystem.Models.Voto import Voto
 
 class Eleitor(Pessoa):
 

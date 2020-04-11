@@ -1,4 +1,4 @@
-from Models.Eleitor import Eleitor
+from reliableVotinSystem.Models.Eleitor import Eleitor
 
 class Candidato(Eleitor):
 

@@ -1,9 +1,9 @@
-from Models.Eleitor import Eleitor
-from Models.Eleitorado import Eleitorado
-from Models.Tabulacao import Tabulacao
-from Models.Candidato import Candidato
-from Models.Candidatos import Candidatos
-from Controllers.ControllerTabulacao import *
+from reliableVotinSystem.Models.Eleitor import Eleitor
+from reliableVotinSystem.Models.Eleitorado import Eleitorado
+from reliableVotinSystem.Models.Tabulacao import Tabulacao
+from reliableVotinSystem.Models.Candidato import Candidato
+from reliableVotinSystem.Models.Candidatos import Candidatos
+from reliableVotinSystem.Controllers.ControllerTabulacao import *
 
 candidatos = Candidatos()
 tabulacao = Tabulacao()
