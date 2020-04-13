@@ -7,6 +7,4 @@ candidatos = Candidatos()
 tabulacao = Tabulacao()
 controllerEleitor = ControllerEleitor()
 print(controllerEleitor.get_eleitor().get_eleitorado())
-controllerEleitor.remover_eleitor("08502792407")
-print(controllerEleitor.get_eleitor().get_eleitorado())
 
