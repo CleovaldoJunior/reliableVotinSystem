@@ -1,5 +1,4 @@
 class Voto:
-
     def __init__(self, n_candidato):
         self.n_candidato = n_candidato
 
