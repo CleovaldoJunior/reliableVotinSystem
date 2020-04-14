@@ -15,9 +15,9 @@ class ControllerEleitor:
         self.eleitor_model.add_eleitor(eleitor)
 
     def remover_eleitor(self, cpf):
-        self.eleitor_model.remover_eleitor(cpf)
+        self.eleitor_model.remover_eleitor_bd(cpf)
 
-    def get_eleitor(self):
+    def get_model_eleitor(self):
         return self.eleitor_model
 
     def recovery_eleitorado(self):

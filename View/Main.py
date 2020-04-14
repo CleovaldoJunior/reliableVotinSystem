@@ -1,10 +1,13 @@
 from reliableVotinSystem.Controllers.ControllerEleitor import *
-from reliableVotinSystem.Models.Candidatos import Candidatos
+from reliableVotinSystem.Controllers.ControllerCandidato import *
 from reliableVotinSystem.Models.Tabulacao import Tabulacao
-from reliableVotinSystem.Banco import *
 
-candidatos = Candidatos()
-tabulacao = Tabulacao()
+controllerCandidato = ControllerCandidato()
 controllerEleitor = ControllerEleitor()
-print(controllerEleitor.get_eleitor().get_eleitorado())
+print(controllerCandidato.get_model_candidato().get_candidatos())
+
+
+
+
+
 
