@@ -1,10 +1,22 @@
 from reliableVotinSystem.Controllers.ControllerEleitor import *
 from reliableVotinSystem.Controllers.ControllerCandidato import *
+from reliableVotinSystem.Controllers.ControllerTabulacao import *
 
+controllerTabulacao = ControllerTabulacao()
 controllerCandidato = ControllerCandidato()
 controllerEleitor = ControllerEleitor()
-print(controllerCandidato.get_model_candidato().get_candidatos())
-print(controllerEleitor.get_model_eleitor().get_eleitorado()[0].get_nome())
+
+listaCandidatos = controllerCandidato.get_lista_candidatos()
+listaEleitorado = controllerEleitor.get_lista_eleitorado()
+
+listaEleitorado[0].votar(listaCandidatos[0].get_id_candidato(), controllerTabulacao.get_model_tabulacao())
+listaEleitorado[1].votar(listaCandidatos[0].get_id_candidato(), controllerTabulacao.get_model_tabulacao())
+
+for i in listaEleitorado:
+    print(i.get_cipher_vote())
+
+
+
 
 
 

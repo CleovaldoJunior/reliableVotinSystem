@@ -1,6 +1,8 @@
+from reliableVotinSystem.Security.RSA import *
 class Voto:
-    def __init__(self, n_candidato):
-        self.n_candidato = n_candidato
+    def __init__(self, id_candidato, id_eleitor, public_key):
+        self.__cipher_vote = encryption(id_candidato+id_eleitor, public_key)
 
-    def get_n_candidato(self):
-        return self.n_candidato
+    def get_cipher_vote(self):
+        return self.__cipher_vote
+
