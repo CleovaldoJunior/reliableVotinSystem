@@ -10,6 +10,7 @@ class Candidato(Eleitor):
         self.__candidatos = list()
         self.__candidatos_bd = list()
         self.recuperar_candidatos()
+        self.n_candidato = None
 
     # Atualiza o numero do candidato
     def set_id_candidato(self, id_candidato_p):
@@ -22,6 +23,12 @@ class Candidato(Eleitor):
     # Atualiza a lista dos candidatos vindos do Banco de Dados
     def set_candidatos_bd(self, candidatos_bd_p):
         self.__candidatos_bd = candidatos_bd_p
+
+    def set_n_candidato(self, n_candidato):
+        self.n_candidato = n_candidato
+
+    def get_n_candidato(self):
+        return self.n_candidato
 
     # Retorna o id do candidato
     def get_id_candidato(self):

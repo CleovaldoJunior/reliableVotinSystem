@@ -1,15 +1,25 @@
-import rsa
+from Cryptodome.PublicKey import RSA
+from Cryptodome.Cipher import PKCS1_OAEP
 
-def get_keys(bits):
-   (pubkey, privkey) = rsa.newkeys(bits)
-   return pubkey, privkey
+def gerarKeys():
+   keyPair = RSA.generate(1024)
+   pubKey = keyPair.publickey()
+   return (pubKey, keyPair)
 
-def encryption(plaintext, public_key):
-   plaintext = plaintext.encode('utf8')
-   cipher = rsa.encrypt(plaintext, public_key)
-   return cipher
+def encryption(plaintext, pub_key):
+   plaintext= bytes(plaintext, 'utf-8')
+   encryptor = PKCS1_OAEP.new(pub_key)
+   encrypted = encryptor.encrypt(plaintext)
+   return encrypted
 
-def decrypt(cipher, private_key):
-   plaintext = rsa.decrypt(cipher, private_key)
-   return plaintext.decode('utf8')
+def decrypt(ciphertext, priv_key):
+   decryptor = PKCS1_OAEP.new(priv_key)
+   decrypted = decryptor.decrypt(ciphertext)
+   return decrypted.decode("utf-8")
+
+keypair = gerarKeys()
+cipher = encryption("123456789",keypair[0])
+
+
+
 

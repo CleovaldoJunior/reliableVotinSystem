@@ -13,13 +13,19 @@ class ControllerCandidato:
                 return candidato
 
     # Cadastra o candidato na lista da sessão atual
-    def cadastrar_candidato_aux(self, nome_p, idade_p, cpf_p, sexo_p, titulo_p, id_candidato_p):
+    def cadastrar_candidato_aux(self, nome_p, idade_p, cpf_p, sexo_p, titulo_p, id_candidato_p, n_candidato):
         candidato = Candidato(nome_p, idade_p, cpf_p, sexo_p, titulo_p, id_candidato_p)
+        candidato.set_n_candidato(n_candidato)
         self.__candidato_model.add_candidato(candidato)
 
     # Cadastra o candidato no Banco de Dados e na sessão atual
     def cadastrar_candidato(self, nome_p, idade_p, cpf_p, sexo_p, titulo_p, id_candidato_p):
         candidato = Candidato(nome_p, idade_p, cpf_p, sexo_p, titulo_p, id_candidato_p)
+        if len(self.get_lista_candidatos()) > 0:
+            n_candidato = self.get_lista_candidatos()[-1].get_n_candidato()+1
+        else:
+            n_candidato = 0
+        candidato.set_n_candidato(n_candidato)
         self.__candidato_model.add_candidato_bd(candidato)
         self.__candidato_model.add_candidato(candidato)
 
@@ -34,7 +40,7 @@ class ControllerCandidato:
     # Recupera os candidatos vindos do Banco de Dados
     def recovery_candidatos(self):
         for att in self.__candidato_model.get_candidatos_bd():
-            self.cadastrar_candidato_aux(att[0], att[1], att[2], att[3], att[4], att[5])
+            self.cadastrar_candidato_aux(att[0], att[1], att[2], att[3], att[4], att[5], att[6])
 
     def get_lista_candidatos(self):
         return self.get_model_candidato().get_candidatos()

@@ -12,7 +12,6 @@ class Eleitor(Pessoa):
         self.__eleitorado = list()
         self.__eleitorado_bd = list()
         self.__cipher_vote = None
-        self.__public_key = get_keys(256)[0]
         self.recuperar_eleitorado()
 
     # Atualiza o titulo de eleitor
@@ -42,12 +41,10 @@ class Eleitor(Pessoa):
     def get_cipher_vote(self):
         return self.__cipher_vote
 
-    def get_public_key(self):
-        return self.__public_key
-
     # Eleitor vota em algum candidato
     def votar(self, n_candidato, tabulacao):
-        voto = Voto(n_candidato, self.get_titulo(), self.get_public_key())
+        public_key = gerarKeys()
+        voto = Voto(n_candidato, public_key[0])
         self.__cipher_vote = voto.get_cipher_vote()
         tabulacao.aplicar_voto(voto)
 
