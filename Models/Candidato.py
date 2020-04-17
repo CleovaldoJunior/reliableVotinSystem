@@ -10,6 +10,7 @@ class Candidato(Eleitor):
         self.__candidatos = list()
         self.__candidatos_bd = list()
         self.recuperar_candidatos()
+        self.__candidatos_power_10 = list()
         self.n_candidato = n_candidato
 
     # Atualiza o numero do candidato
@@ -41,6 +42,9 @@ class Candidato(Eleitor):
     # Retorna a lista dos candidatos vindos do Banco de Dados
     def get_candidatos_bd(self):
         return self.__candidatos_bd
+
+    def get_candidatos_power_10(self):
+        return self.__candidatos_power_10
 
     # Adiciona candidato à lista da sessão atual
     def add_candidato(self, candidato):

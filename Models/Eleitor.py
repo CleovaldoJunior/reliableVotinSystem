@@ -1,7 +1,7 @@
 from reliableVotinSystem.Models.Pessoa import Pessoa
-from reliableVotinSystem.Models.Voto import Voto
 from reliableVotinSystem.Security.RSA import *
 from reliableVotinSystem.Banco import *
+from reliableVotinSystem.Security.Paillier_Cipher import *
 
 
 class Eleitor(Pessoa):
@@ -43,8 +43,7 @@ class Eleitor(Pessoa):
 
     # Eleitor vota em algum candidato
     def votar(self, n_candidato, tabulacao):
-        voto = Voto(n_candidato)
-        tabulacao.aplicar_voto(voto)
+        tabulacao.aplicar_voto(encrypt(10**n_candidato))
 
     # Deleta o eleitor da lista da sessão atual pelo CPF
     def deletar_eleitor_cpf(self, cpf):

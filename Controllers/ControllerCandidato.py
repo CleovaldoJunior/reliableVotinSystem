@@ -1,6 +1,5 @@
 from reliableVotinSystem.Models.Candidato import Candidato
 
-
 class ControllerCandidato:
     def __init__(self):
         self.__candidato_model = Candidato()
@@ -15,7 +14,7 @@ class ControllerCandidato:
     # Cadastra o candidato na lista da sessão atual
     def cadastrar_candidato_aux(self, nome_p, idade_p, cpf_p, sexo_p, titulo_p, id_candidato_p, n_candidato):
         candidato = Candidato(nome_p, idade_p, cpf_p, sexo_p, titulo_p, id_candidato_p)
-        candidato.set_n_candidato(n_candidato-1)
+        candidato.set_n_candidato(n_candidato)
         self.__candidato_model.add_candidato(candidato)
 
     # Cadastra o candidato no Banco de Dados e na sessão atual

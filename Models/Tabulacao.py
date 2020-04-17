@@ -1,4 +1,3 @@
-from reliableVotinSystem.Security.RSA import *
 class Tabulacao:
 
     def __init__(self):

@@ -1,21 +1,21 @@
 from phe import paillier
+
 def generate_keys():
     ppk = paillier.PaillierPrivateKeyring()
     public_key, private_key = paillier.generate_paillier_keypair(ppk, 128)
     return (public_key,private_key)
 
-def encrypt(n_candidato, proof, public_key):
+public_key, private_key = generate_keys()
+
+def encrypt(n_candidato):
     encrypted = public_key.encrypt(n_candidato)
     return encrypted
 
-kp = generate_keys()
-new_kp = generate_keys()
-votos = [(10**5,1),(10**3,1),(10**2,1),(10**3,1),(10**2,1),(10**3,1),(10**10,1)]
-encrypted = [encrypt(x[0],x[1],kp[0]) for x in votos]
-aux = encrypted[0]
-for i in range(1,len(encrypted)):
-    aux = aux.__add__(encrypted[i])
-print(aux)
-print(kp[1].decrypt(aux))
+def decrypt(cipher):
+    return private_key.decrypt(cipher)
 
-#[private_key.decrypt(x) for x in encrypted_number_list]
+def decrypt_list(cipher_list):
+    cipher_add = cipher_list[0]
+    for i in range(1,len(cipher_list)):
+        cipher_add = cipher_add.__add__(cipher_list[i])
+    return private_key.decrypt(cipher_add)
