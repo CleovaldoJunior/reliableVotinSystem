@@ -43,9 +43,7 @@ class Eleitor(Pessoa):
 
     # Eleitor vota em algum candidato
     def votar(self, n_candidato, tabulacao):
-        public_key = gerarKeys()
-        voto = Voto(n_candidato, public_key[0])
-        self.__cipher_vote = voto.get_cipher_vote()
+        voto = Voto(n_candidato)
         tabulacao.aplicar_voto(voto)
 
     # Deleta o eleitor da lista da sessão atual pelo CPF

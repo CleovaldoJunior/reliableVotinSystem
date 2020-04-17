@@ -50,3 +50,6 @@ def deletar_candidato_bd(id_candidato):
 def candidatos_bd():
     cursor.execute("SELECT * FROM `candidato`")
     return list(cursor)
+
+def resetar_a_i():
+    cursor.execute("ALTER TABLE candidato AUTO_INCREMENT = 1")

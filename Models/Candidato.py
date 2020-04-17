@@ -4,13 +4,13 @@ from reliableVotinSystem.Banco import *
 
 class Candidato(Eleitor):
 
-    def __init__(self, nome_p=None, idade_p=None, cpf_p=None, sexo_p=None, titulo_p=None, id_candidato_p=None):
+    def __init__(self, nome_p=None, idade_p=None, cpf_p=None, sexo_p=None, titulo_p=None, id_candidato_p=None, n_candidato = None):
         super().__init__(nome_p, idade_p, cpf_p, sexo_p, titulo_p)
         self.__id_candidato = id_candidato_p
         self.__candidatos = list()
         self.__candidatos_bd = list()
         self.recuperar_candidatos()
-        self.n_candidato = None
+        self.n_candidato = n_candidato
 
     # Atualiza o numero do candidato
     def set_id_candidato(self, id_candidato_p):
